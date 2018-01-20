@@ -1,21 +1,30 @@
 import math
 import utils
 
-def unique_prime_divisors_up_to(number):
-  unique_divisors = set()
-  for n in xrange(1, number):
-    for m in xrange(1, n):
-      if (n % m == 0 and utils.is_prime(m)):
-        unique_divisors.add(m)
-  return unique_divisors
+def primes_up_to(number):
+  primes = set()
+  for n in xrange(2, number):
+    if (utils.is_prime(n)):
+      primes.add(n)
+  return primes
+
+def multiplicity(num, upto):
+  for i in range(2, upto):
+    if (math.pow(num, i) > upto):
+      return i-1
+    else:
+      continue
+  return 1
 
 def lowest_divisible_up_to(number):
-  unique_divisors = unique_prime_divisors_up_to(number)
-  print(unique_divisors)
+  primes = primes_up_to(number)
+  print(primes)
   lowest_divisible = 1
 
-  for n in unique_divisors:
-    lowest_divisible = lowest_divisible * n
+  for n in primes:
+    multi = multiplicity(n, number)
+    multiplication_factor = n ** multi
+    lowest_divisible = lowest_divisible * multiplication_factor
   
   return lowest_divisible
 
