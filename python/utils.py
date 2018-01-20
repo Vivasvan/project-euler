@@ -1,10 +1,10 @@
 import math
 
 def is_prime(number):
-  max = int(math.floor(math.sqrt(number)))
-  for n in xrange(2, max):
+  is_prime = True
+  n = 2
+  while (n <= math.sqrt(number)):
     if (number % n == 0):
-      return False
-    else:
-      continue
-  return True
+      is_prime = False
+    n += 1
+  return is_prime
