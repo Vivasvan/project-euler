@@ -2,12 +2,14 @@ import math
 import utils
 
 def nthprime(n):
-  if (n == 1):
-    return 2
+  last_prime = 2
   
-  return primeAfter(nthprime(n-1))
+  for i in xrange(1, n):
+    last_prime = prime_after(last_prime)
+    
+  return last_prime
 
-def primeAfter(n):
+def prime_after(n):
   current = n + 1
   is_prime = utils.is_prime(n+1)
   while(not is_prime):
@@ -16,4 +18,4 @@ def primeAfter(n):
   
   return current
   
-print(nthprime(100))
+print(nthprime(10001))
