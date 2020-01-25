@@ -1,0 +1,1 @@
+Every path that moves from top left to bottom right in a n by n square lattice has to go right n times and down n times, so by the binomial theorem there's 40 choose 20 distinct paths in a 20x20 lattice.
