@@ -6,14 +6,14 @@ let words = require("./n-length-words").words;
 let primes = require("./primes.json").primes;
 
 let total = 0;
-console.log(phi(100));
+// console.log(phi(100));
 
-for (var i = 2; i <= 1000000; i++) {
-  total += phi(i);
-  if (i % 1 === 0) {
-    console.log("i = " + i, "total = " + total);
-  }
-}
+// for (var i = 2; i <= 1000000; i++) {
+//   total += phi(i);
+//   if (i % 1 === 0) {
+//     console.log("i = " + i, "total = " + total);
+//   }
+// }
 // console.log(total);
 
 function phi(n) {
