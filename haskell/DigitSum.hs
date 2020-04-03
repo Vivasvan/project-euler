@@ -26,3 +26,9 @@ phi = (1 + sqrt 5) / 2
 smallestFibWithLengthD :: Int -> Int
 smallestFibWithLengthD d =
     ceiling ((fromIntegral d - 1) / logBase 10 phi + logBase phi 5 / 2)
+
+
+selfPowers :: Integer
+selfPowers = sum (map (\x -> x ^ x) [1 .. 1000]) `mod` (10 ^ 10)
+
+-- take the last 9 digits
