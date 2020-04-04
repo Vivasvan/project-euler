@@ -2,8 +2,17 @@ module ReciprocalCycles where
 import           Prelude
 import           Data.List
 
-getDecimalSeq :: (Num a, Show a) => a -> String
-getDecimalSeq x = drop 2 $ show x
+-- intPart :: (RealFrac a) => a -> Integer
+-- intPart a = floor (a)
+
+
+getDigits :: Double -> Int -> String
+getDigits _ 0 = ""
+getDigits x n = (show $ floor (10 * x))
+    ++ getDigits (10 * x - fromInteger (floor (10 * x))) (n - 1)
+
+getDecimalSeq :: Double -> String
+getDecimalSeq x = getDigits x 1000
 
 isCycleLength n s = do
     let x = take n s
