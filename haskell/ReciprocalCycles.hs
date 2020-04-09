@@ -6,10 +6,8 @@ import           Data.List
 -- intPart a = floor (a)
 
 
-getDigits :: Double -> Int -> String
-getDigits _ 0 = ""
-getDigits x n = (show $ floor (10 * x))
-    ++ getDigits (10 * x - fromInteger (floor (10 * x))) (n - 1)
+getNextDigit :: Double -> String
+getNextDigit x = show $ floor (10 * x)
 
 getDecimalSeq :: Double -> String
 getDecimalSeq x = getDigits x 1000
