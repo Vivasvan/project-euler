@@ -2,9 +2,15 @@ module CircularPrimes where
 import           Prelude
 
 
-factors n = [ x | x <- [1 .. n - 1], n `rem` x == 0 ]
+factors n = [ x | x <- [ y | y <- [1 .. n], y ^ 2 < n ], n `rem` x == 0 ]
 
 isPrime n = 1 == (length $ factors n)
+
+primes = filter isPrime [1 .. 1000000]
+
+isPrimeSmart p = p `elem` primes
+
+
 
 digits :: Int -> [Int]
 digits n | n < 10    = [n]
@@ -32,7 +38,7 @@ permToStr []       = ""
 permToNo :: [Int] -> Int
 permToNo = read . permToStr
 
-isCyclicPrime n = all (isPrime . permToNo) (perms $ digits n)
+isCyclicPrime n = all (isPrimeSmart . permToNo) (perms $ digits n)
 
 x = filter isCyclicPrime [1 .. 10000]
 
